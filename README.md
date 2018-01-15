@@ -13,10 +13,10 @@ Our solution maybe nothing more than, individually copy the resource file name, 
 
 So, we need such a tool: to quickly find all the resources in the project did not use the file.
 
-Here is a script someone may choose in their project.
-![script](https://github.com/Eugenia-Ye/YEImagesKit/blob/master/YEImagesKitExample.gif)
-But its **shortcomings** are obvious: 
+Here is a **script** someone may choose in their project.
+![script](https://github.com/Eugenia-Ye/YEImagesKit/blob/master/script.png)
 
+But its **shortcomings** are obvious: 
  - not smart enough
  - not common enough
  - too slow
@@ -41,7 +41,9 @@ It's an useful utility tool to check what resources are not being used in your X
 2. Click `Search` to start searching.
 3. Wait a second, the results will be shown in the tableview.
 
+## Demo
 ![Demo](https://github.com/Eugenia-Ye/YEImagesKit/blob/master/YEImagesKit/YEImagesKitExample.gif)
+
 
 ## Feature
 
