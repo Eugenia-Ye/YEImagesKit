@@ -42,7 +42,7 @@ It's an useful utility tool to check what resources are not being used in your X
 3. Wait a second, the results will be shown in the tableview.
 
 ## Demo
-![Demo](https://github.com/Eugenia-Ye/YEImagesKit/blob/master/YEImagesKit/YEImagesKitExample.gif)
+![Demo](https://github.com/Eugenia-Ye/YEImagesKit/blob/master/YEImagesKitExample.gif)
 
 
 ## Feature
