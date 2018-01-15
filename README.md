@@ -1,9 +1,35 @@
-# LSUnusedResources
-A Mac App to find unused images and resources in an XCode project. It is heavily influenced by jeffhodnett‘s [Unused](http://jeffhodnett.github.io/Unused/), but Unused is very slow, and the results are not entirely correct. So I made some performance optimization, the search speed is more faster than Unused.
+# YEImagesKit ![App Icon](https://github.com/Eugenia-Ye/YEImagesKit/blob/master/YEImagesKit/Recourse/Images.xcassets/AppIcon.appiconset/Icon_32%402x.png)
+A Mac app for checking Xcode projects for unused resources
 
-## Example
+# Why we need it ?
 
-![LSMessageHUD Example1](https://github.com/tinymind/LSUnusedResources/raw/master/LSUnusedResourcesExample.gif)  
+Before I answer this question, please answer my question first -- how do you clean up the discarded resource files in your project?
+
+As we know, the longer the development of a project, the more functional modules will be added, accordingly, the more pictures and other resources will be introduced in the project. However, when removing some modules that are no longer in use, developers tend to forget to delete the corresponding picture resources for the module because the source and the resource are separate. As the time goes, there will be a large number of resources that are not used in the project.
+
+What our solution is nothing more than, individually copy the resource file name, and then look up the string in the XCode globally. If not found, then the resources may "possibly" not been used any more. Why is it possible? Because in the code, it is possible that some resource name "sneak" because their name strings are constructed by string format. In this situation there is no way to find out all matching resource names.
+
+So, we need such a tool: to quickly find all the resources in the project did not use the file.
+
+Here is a script someone may choose in their project.
+![script](https://github.com/Eugenia-Ye/YEImagesKit/blob/master/script.png)
+But its **shortcomings** are obvious: 
+
+ - not smart enough
+ - not common enough
+ - too slow
+
+The results are not always reliable. If you delete resource files based on the result of this script, you may have a high risk to discard files that are really useful in the project.
+
+# Why choose YEImageKit ?
+
+YEImageKit provides an interface to end users. User can easily configure script's arguments, and then show the result in a clear comparison panel. It is more user-friendly.
+And the tool has been optimised on the core code to make it a great improvement in search efficiency and the correctness of the results.
+
+The core steps are outlined below:
+**Find**: All resources under the selected directory. There is no much difference from Unused in this step. App calls find command to find the specified suffix name of the file.
+
+**Match**: Unlike the above scenario, App did not full-text search for each resource file name because there was too much resources in the project, which would result in a dramatical decline in performance. So I improve it by searching just for the source code, Xib, Storyboard and plist and other documents. First, full-text search the strings which may be referred as resource, and then try to match the resource file name with these strings.
 
 ## Usage
 
@@ -39,7 +65,7 @@ And using in this way:
 
 ## Installation
 
-* Download: [LSUnusedResources.app.zip](https://github.com/tinymind/LSUnusedResources/raw/master/Release/LSUnusedResources.app.zip)
+* Download: [YEImagesKit.app.zip](https://github.com/Eugenia-Ye/YEImagesKit/tree/master/Release/YEImagesKit.app.zip)
 * Or build and run the project using XCode.
 
 ## Requirements
